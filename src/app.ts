@@ -11,10 +11,19 @@ class App {
     public app: express.Application;
 
     constructor() {
+        this.dbsetup();
         this.app = express();
         this.config();
         this.routerSetup();
-        this.dbSetup();
+    }
+
+    private async dbsetup() {
+        try {
+            let connection = await createConnection(config);
+            console.log("Has connected to DB? ", connection.isConnected);
+        } catch (error) {
+            console.log("TypeORM connection error: ", error);
+        }
     }
 
     private config(): void {
@@ -25,15 +34,6 @@ class App {
     private routerSetup() {
         for (const route of routers) {
             this.app.use(route.getPrefix(), route.getRouter());
-        }
-    }
-
-    private async dbSetup() {
-        try {
-            let connection = await createConnection(config);
-            console.log("Has connected to DB? ", connection.isConnected);
-        } catch (error) {
-            console.log("TypeORM connection error: ", error)
         }
     }
 }

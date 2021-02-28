@@ -53,6 +53,9 @@ export class Transaction {
   @Column("text", { name: "tx_bitmark_id", nullable: true })
   txBitmarkId: string | null;
 
+  @Column("text", { name: "tx_previous_id", nullable: true })
+  txPreviousId: string | null;
+
   @Column("enum", { name: "tx_head", enum: ["prior", "moved", "head"] })
   txHead: "prior" | "moved" | "head";
 

@@ -1,6 +1,7 @@
 import { ConnectionOptions } from "typeorm";
 
 const config: ConnectionOptions = {
+    name:"default",
     type: "postgres",
     host: process.env.PG_HOST,
     port: 5432,
@@ -8,7 +9,7 @@ const config: ConnectionOptions = {
     password: process.env.PG_PASSWORD,
     database: process.env.PG_DB,
     entities: [
-        __dirname + "/../entities/entities/*.js"
+        __dirname + "/../entities/entities/*.ts"
     ],
     logging: false
 }

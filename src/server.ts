@@ -1,6 +1,5 @@
 import app from "./app";
-const PORT = 3000;
 
-app.listen(PORT, () => {
-    console.log('Express server listening on Port ', PORT);
+app.listen(3000, () => {
+    console.log('Express server listening on Port ', 3000);
 })

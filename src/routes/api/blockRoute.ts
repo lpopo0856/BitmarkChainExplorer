@@ -2,19 +2,24 @@ import blockController from "../../controllers/blockController";
 import { apiBaseRoute } from './apiBaseRoute';
 
 export class blockRoutes extends apiBaseRoute {
-    private blockController: blockController = new blockController();
+    private blockController: blockController;
 
     constructor() {
         super();
+        this.blockController = new blockController();
         this.setRoutes();
     }
-    
+
     protected setRoutes() {
 
         this.router.route('/block')
-            .get(this.blockController.getAll);
+            .get((req, res) => {
+                this.blockController.getAll(req, res)
+            });
 
         this.router.route('/block/:id')
-            .get(this.blockController.getOne);
+            .get((req, res) => {
+                this.blockController.getOne(req, res)
+            });
     }
 }

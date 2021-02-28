@@ -7,7 +7,7 @@
     "ts-build": "tsc",
     "ts-build-db": "ts-node ./src/index.ts",
     "ts-dev": "ts-node -r dotenv/config ./src/server.ts",
-    "ts-start": "nodemon ./dist/server.js",
+    "ts-start": "nodemon ./src/server.ts",
     "ts-prod": "npm run tsc-build && npm run ts-start",
     "start": "set \"NODE_ENV=development\" && node app.js",
     "dev": "NODE_ENV=development nodemon app.js",
