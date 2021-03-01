@@ -9,7 +9,8 @@ const config: ConnectionOptions = {
     password: process.env.PG_PASSWORD,
     database: process.env.PG_DB,
     entities: [
-        __dirname + "/../entities/entities/*.ts"
+        __dirname + "/../entities/entities/*.ts",
+        __dirname + "/../entities/entities/*.js"
     ],
     logging: false
 }

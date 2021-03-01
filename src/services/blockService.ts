@@ -8,11 +8,11 @@ class blockService {
 
     public getBlocks(page_id: number) {
         let qb = getRepository(Block).createQueryBuilder('Block');
-        // 限定分頁每次十筆
+        // 限定分頁每次一百筆
         return qb
             .orderBy('block_number', 'DESC')
-            .skip(10 * (Number(page_id) - 1))
-            .take(10)
+            .skip(100 * (Number(page_id) - 1))
+            .take(100)
             .getMany();
     }
 }

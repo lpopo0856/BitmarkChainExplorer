@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  updaterd:
+    image: jiji0856/bitmarkupdated
+    container_name: bitmarkupdated
+    restart: unless-stopped
+    tty: true
+    working_dir: /tmp/updaterd
+    networks:
+      - app-network
+  bitmarkexplorerApi:
+    image: jiji0856/bitmarkexplorer
+    container_name: bitmarkexplorer
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3000:3000"
+    working_dir: /tmp/bitmarkexplorer
+    networks:
+      - app-network
+  bitmarkexplorerWeb:
+    image: jiji0856/bitmarkexplorerweb
+    container_name: bitmarkexplorerweb
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
