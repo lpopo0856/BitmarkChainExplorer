@@ -9,8 +9,8 @@ import { latestBlock } from  "./utils/websocket";
 
 export const io = new Server(3030, {
   cors: {
-    origin: "http://localhost:8080",
-    methods: ["GET", "POST"]
+    origin: process.env.HOST+":8080",
+    methods: ["GET"]
   }
 });
 
