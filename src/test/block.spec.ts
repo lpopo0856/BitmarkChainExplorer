@@ -21,7 +21,7 @@ describe('blockService => getBlocks', () => {
 		const queryBuilder = typeorm.getRepository(Block).createQueryBuilder
 		expect(queryBuilder().orderBy).toHaveBeenNthCalledWith(1, "block_number", 'DESC')
 		expect(queryBuilder().skip).toHaveBeenNthCalledWith(1, 0)
-		expect(queryBuilder().take).toHaveBeenNthCalledWith(1, 100)
+		expect(queryBuilder().take).toHaveBeenNthCalledWith(1, 10)
 		expect(queryBuilder().getMany).toHaveBeenNthCalledWith(1)
 	})
 })
